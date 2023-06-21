@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Encriptador de Texto</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
     <header>
-        <h1>Encriptador de Texto</h1>
+      <h1>Encriptador de Texto</h1>
     </header>
     <main>
-        <section>
-            <textarea class="message" cols="60" rows="10"></textarea>
-            <p>Texto con minúsculas y sin acentos</p>
-            <button class="btn-encrypter">Encriptar</button>
-            <button class="btn-decryptor">Desencriptar</button>
-        </section>
-        <section>
-            <textarea class="encrypted-message" cols="30" rows="10"></textarea>
-            <button class="btn-copy">Copiar</button>
-        </section>
+      <section>
+        <textarea class="message" cols="60" rows="10" placeholder="Ingresa tu texto Aquí..."></textarea>
+        <p>*Texto con minúsculas y sin acentos</p>
+        <button class="btn-encrypter">Encriptar</button>
+        <button class="btn-decryptor">Desencriptar</button>
+        <button class="btn-clean">Clean</button>
+      </section>
+      <section>
+        <textarea class="encrypted-message" cols="30" rows="10"></textarea>
+        <button class="btn-copy">Copiar</button>
+      </section>
     </main>
     <footer>
-        <p>Developed by Evelyn Garrido</p>
+      <p>Developed by Evelyn Garrido - All rights reserved © 2023</p>
     </footer>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>

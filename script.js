@@ -13,6 +13,8 @@ const encryptedMessage = document.querySelector('.encrypted-message');
 const btnEncrypter = document.querySelector('.btn-encrypter');
 const btnDecryptor = document.querySelector('.btn-decryptor');
 const btnCopy = document.querySelector('.btn-copy');
+const btnClean = document.querySelector('.btn-clean');
+
 
 const keys = [['e', 'enter'], ['i', 'imes'], ['a', 'ai'], ['o', 'ober'], ['u', 'ufat']];
 message.value = "";
@@ -36,6 +38,7 @@ function encrypt (){
 function encryptText (){
   if(!validationText()){
     encrypt();
+    encryptedMessage.style.backgroundImage = "none";
   } else {
     alert("Solo minusculas y sin acentos")
   }
@@ -56,6 +59,7 @@ function decryptor (){
 function decryptText (){
   if(!validationText()){
     decryptor();
+    encryptedMessage.style.backgroundImage = "none";
   } else {
     alert("Solo minusculas y sin acentos")
   }
@@ -64,10 +68,24 @@ function decryptText (){
 btnDecryptor.onclick = decryptText;
 
 function copy() {
-  encryptedMessage.select();
-  //navigator.clipboard.writeText(encryptedMessage.value)
-  document.execCommand("cut");
-  alert('Mensaje Copiado')
+  if(encryptedMessage.value){
+    encryptedMessage.select();
+    navigator.clipboard.writeText(encryptedMessage.value)
+    alert('Mensaje Copiado');
+    encryptedMessage.value= "";
+    message.value = "";
+    encryptedMessage.style.backgroundImage = "url('/image.jpg')";
+  } else {
+    alert("No hay texto para copiar")
+  }
 }
 
 btnCopy.onclick = copy;
+
+function cleanText(){
+  encryptedMessage.value= "";
+  message.value = "";
+  encryptedMessage.style.backgroundImage = "url('/image.jpg')";
+}
+
+btnClean.onclick = cleanText;
