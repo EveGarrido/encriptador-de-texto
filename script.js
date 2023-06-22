@@ -8,6 +8,7 @@
 
 // Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original.
 
+
 const message = document.querySelector('.message');
 const encryptedMessage = document.querySelector('.encrypted-message');
 const btnEncrypter = document.querySelector('.btn-encrypter');
@@ -19,7 +20,6 @@ const btnClean = document.querySelector('.btn-clean');
 const keys = [['e', 'enter'], ['i', 'imes'], ['a', 'ai'], ['o', 'ober'], ['u', 'ufat']];
 message.value = "";
 encryptedMessage.value = "";
-
 
 function validationText (){
   return message.value.match(/[A-Z^$.*+¡/¿?()[\]{}|\u00C0-\u017F]/g);
@@ -40,9 +40,15 @@ function encryptText (){
     encrypt();
     encryptedMessage.style.backgroundImage = "none";
   } else {
-    alert("Solo minusculas y sin acentos")
+      swal({
+        title: "Solo minúsculas y sin acentos",
+        text: "Intentalo nuevamente!",
+        icon: "warning",
+        timer: 2500
+      })
+    }
   }
-}
+
 
 btnEncrypter.onclick = encryptText;
 
@@ -61,7 +67,12 @@ function decryptText (){
     decryptor();
     encryptedMessage.style.backgroundImage = "none";
   } else {
-    alert("Solo minusculas y sin acentos")
+    swal({
+      title: "Solo minúsculas y sin acentos",
+      text: "Intentalo nuevamente!",
+      icon: "warning",
+      timer: 2500
+    })
   }
 }
 
@@ -71,12 +82,21 @@ function copy() {
   if(encryptedMessage.value){
     encryptedMessage.select();
     navigator.clipboard.writeText(encryptedMessage.value)
-    alert('Mensaje Copiado');
+    swal({
+      title: "Mensaje copiado exitosamente!",
+      icon: "success",
+      timer: 1500
+    })
     encryptedMessage.value= "";
     message.value = "";
     encryptedMessage.style.backgroundImage = "url('/image.jpg')";
   } else {
-    alert("No hay texto para copiar")
+    swal({
+      title: "Ingrese un mensaje",
+      text: "No hay texto para copiar",
+      icon: "error",
+      timer: 2500
+    })
   }
 }
 
