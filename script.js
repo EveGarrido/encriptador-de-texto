@@ -108,7 +108,7 @@ btnCopy.onclick = copy;
 function cleanText(){
   encryptedMessage.value= "";
   message.value = "";
-  encryptedMessage.style.backgroundImage = "url('/image.jpg')";
+  encryptedMessage.style.backgroundImage = "url('image.jpg')";
 }
 
 btnClean.onclick = cleanText;
