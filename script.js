@@ -1,14 +1,3 @@
-// La letra "e" es convertida para "enter"
-// La letra "i" es convertida para "imes"
-// La letra "a" es convertida para "ai"
-// La letra "o" es convertida para "ober"
-// La letra "u" es convertida para "ufat"
-
-// No deben ser utilizados letras con acentos ni caracteres especiales
-
-// Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original.
-
-
 const message = document.querySelector('.message');
 const encryptedMessage = document.querySelector('.encrypted-message');
 const btnEncrypter = document.querySelector('.btn-encrypter');
@@ -27,22 +16,30 @@ function validationText (){
 
 function encrypt (){
   let text = message.value;
+  if(text !== ""){
     for(let i = 0; i < keys.length; i++){
       if(text.includes(keys[i][0])){
         text = text.replaceAll(keys[i][0], keys[i][1]);
       }
-    }
+    }   
     encryptedMessage.value = text;
+  } 
 }
 
 function encryptText (){
-  if(!validationText()){
+  if(!validationText() && message.value !== ""){
     encrypt();
     encryptedMessage.style.backgroundImage = "none";
-  } else {
+  } else if (validationText()){
       swal({
-        title: "Solo minúsculas y sin acentos",
+        title: "Solo con minúsculas y sin acentos",
         text: "Intentalo nuevamente!",
+        icon: "warning",
+        timer: 2500
+      })
+    } else {
+      swal({
+        title: "Ingresa un mensaje para encriptar",
         icon: "warning",
         timer: 2500
       })
@@ -63,13 +60,19 @@ function decryptor (){
 }
 
 function decryptText (){
-  if(!validationText()){
+  if(!validationText() && message.value !== ""){
     decryptor();
     encryptedMessage.style.backgroundImage = "none";
-  } else {
+  } else if (validationText()){
     swal({
       title: "Solo minúsculas y sin acentos",
       text: "Intentalo nuevamente!",
+      icon: "warning",
+      timer: 2500
+    })
+  } else {
+    swal({
+      title: "Ingresa un mensaje para desencriptar",
       icon: "warning",
       timer: 2500
     })
